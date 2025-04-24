@@ -187,8 +187,297 @@
 // }
 
 
-const add = require("./add");
+// const add = require("./add");
 
-console.log("hello test here")
-const sum = add(1,3);
-console.log(sum)
+// console.log("hello test here")
+// const sum = add(1,3);
+// console.log(sum)
+
+
+// let num = [1,2,3,4,5];
+// // num.forEach(function(num , index) {
+// //     console.log(`the number ${num} is at index ${index}`);
+// // });
+
+// num.forEach((num ,index) => {
+//     console.log(`the number ${num} is at index ${index}`);
+// });
+
+
+// const random = document.getElementById("randomButton");
+// const labelnum = document.getElementById("label")
+// const min = 1;
+// const max = 6;
+
+
+// let randomNum;
+
+// random.onclick = function(){
+//     randomNum = Math.floor(Math.random() * max) + min;
+//     labelnum.textContent = randomNum;
+
+// };
+
+// const myText = document.getElementById("myText");
+// const mySubmit = document.getElementById("mySubmit");
+// const result = document.getElementById("result");
+
+// let age;
+
+// mySubmit.onclick = function(){
+
+//     age = myText.value;
+//     age = Number(age);
+//     if(age >= 100){
+//         result.textContent =`You are TOO OLD to enter this site`;
+//     }
+//     else if(age == 0){
+//         result.textContent = `You can't enter. You were just born.`
+//     }
+//     else if(age >= 18){
+//         result.textContent = `You are old enough to enter this site`
+//     }
+//     else if(age < 0){
+//         result.textContent = `Your age can't be below 0`;
+//     }
+//     else{
+//         result.textContent = `You must be 18+ to enter this site`;
+//     }
+// };
+
+// let age = 4;
+// let mesg = age >= 18 ? "adult" : "minor";
+// console.log(mesg)
+
+
+// let time = 16;
+// let greeting  = time < 12 ? "morning" : "afternoon";
+// console.log(greeting)
+
+// let purchase = 99;
+// let discount = purchase >= 100 ? 10 : 0;
+// console.log(`your total amount is ${purchase - purchase * (discount/100) }`)
+
+
+
+// let score = 120 ;
+// let grade ;
+
+// switch(true){
+//     case score >=90:
+//         grade = "A";
+//         break;
+//     case score >=80:
+//         grade = "B";
+//         break;
+//     case score >=70:
+//         grade = "C";
+//         break;
+//     case score >=60:
+//         grade = "D";
+//         break;
+//     default:
+//         grade = "failed";
+// }
+// console.log(grade)
+
+
+
+// let username = "yousef";
+// console.log(username.charAt(5));
+// console.log(username.indexOf("y"));
+// console.log(username.length);
+// username = username.toLowerCase();
+// username = username.toUpperCase();
+// username = username.repeat(4);
+// let result = username.startsWith(" ");
+// let result = username.endsWith(" ");
+// let result = username.includes(" ");
+// console.log(result);
+// console.log(username);
+// let phone = "01111-37-97-20";
+// phone = phone.replaceAll("-","/");
+// phone = phone.padStart(16,"/");
+// phone = phone.padEnd(16,"/");
+
+// const name = "yousef ashraf";
+
+// // let fisrtName = name.slice(0,1);
+// // console.log(fisrtName);
+
+// let nam = name.slice(0, name.indexOf(" "))
+// console.log(nam);
+
+// const email = "yousef@gmail.com";
+
+// let name = email.slice(0,email.indexOf("@"))
+// let exten = email.slice(email.indexOf("@"))
+// console.log(name)
+// console.log(exten)
+
+
+// let username = window.prompt("enter you name")
+
+// username = username.trim();
+// let letter = username.charAt(0);
+// letter = letter.toLocaleUpperCase();
+
+// let extrachar = username.slice(1);
+// extrachar = extrachar.toLowerCase();
+// username = letter + extrachar;
+
+
+
+// username = username.trim().charAt(0).toUpperCase() + username.trim().slice(1).toLowerCase();
+// console.log(username)
+
+
+
+
+
+
+
+
+
+// const minNum = 1 ;
+// const maxNum = 100 ;
+
+// const answer = Math.floor(Math.random() *(maxNum - minNum + 1)) + minNum;
+// // console.log(answer)
+// let attempt = 0;
+// let guess;
+// let running = true;
+
+// while(running){
+//     guess = window.prompt(`guess a number between ${minNum} to ${maxNum}`);
+//     guess = Number(guess)
+    
+//     if(isNaN(guess)){
+//         window.alert("Enter a valid number");
+//     }
+//     else if( guess < minNum || guess > maxNum){
+//         window.alert("Enter a valid number in the given range");
+//     }
+//     else{
+//         attempt++;
+//         if(guess < answer){
+//             window.alert("too low try again");
+//         }
+//         else if (guess > answer){
+//             window.alert("Too high! try again");
+//         }
+//         else{
+//             window.alert(`correct the answer was ${answer} and i took you ${attempt} attempts`);
+//             running = false;
+//         }
+//     }
+// }
+
+
+
+// function happybirthday(){
+//     console.log("happy birthday to you")
+//     console.log("happy birthday to you")
+//     console.log("happy birthday to you")
+//     console.log("happy birthday to you")
+
+// }
+
+// happybirthday();
+
+// function isEven(num){
+//     return num % 2 === 0 ? true : false;
+// }
+
+// console.log(isEven(4))
+
+
+// let fruits = ["apple","banana","orange","ay7aga"]
+
+
+// console.log(a[0]);
+// console.log(a[1]);
+// console.log(a[2]);
+// console.log(a[3]);
+
+// let num = a.length;
+// let index = a.indexOf(5)
+// console.log(index)
+
+// for(let i = a.length - 1 ; i >= 0; --i){
+//     console.log(a[i])
+// }
+
+// fruits.sort().reverse()
+// fruits.reverse()
+
+// for(let fruit of fruits){
+//     console.log(fruit)
+// }
+
+// let matrix =[1,2,4];
+
+
+// matrix[0][0] = "X"
+// matrix[0][1] = "O"
+// matrix[0][2] = "X"
+
+
+
+// for (let row of matrix){
+//     const rowString = row.join(' ');
+//     console.log(rowString);
+// }
+
+
+// let fruits = [1,2,3]
+// let veg = [4,5,6]
+
+// let nums = [...fruits,...veg]
+// console.log(nums)
+
+
+// const food1 = 'pizza';
+// const food2 = 'ham';
+// const food3 = 'egg';
+// const food4 = 'apple';
+
+
+// function openfridge(...foods){
+//     console.log(foods);     
+// }
+
+// openfridge(food1,food2)
+
+
+// function sum(...numbers){
+
+//     let result = 0;
+//     for(let number of numbers){
+//         result += number;
+//     }
+//     return result;
+// }
+// function average(...numbers){
+
+//     let result = 0;
+//     for(let number of numbers){
+//         result += number;
+//     }
+//     return result /numbers.length;
+// }
+
+// const test = sum(3,3,3,3,3);
+// const avg  = average(3,3,3,3,3);
+
+
+// console.log(`Your test score is $${test} and ${avg}`);
+
+
+function combineStrings(...strings){
+
+    return strings.join(" ");
+}
+
+const fullName = combineStrings("Mr.","Spongebob","Squarepants","III");
+console.log(fullName)

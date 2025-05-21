@@ -758,4 +758,49 @@
 
 
 
- 
+// const person = {
+//     firstName:"Spongebob",
+//     lastName:"Squarepants",
+//     age:20,
+//     isEmployed:true,
+//     sayHello: () => {console.log("hello im spongebob")},
+//     eat: ()=> {console.log("I'm eating")}
+// }
+// const person2 = {
+//     firstName:"patrick",
+//     lastName:"star",
+//     age:30,
+//     isEmployed:false,
+//     sayHello: () =>{console.log("hello im i'm Patrick")},
+
+// }
+
+// person.sayHello()
+// person.eat()
+// console.log(person2.lastName)
+// console.log(person2.age)
+
+// const person1 = {
+//     name: "Spongebob",
+//     faveFood:"hamburgers",
+//     sayHello:function() {
+//         console.log(`Hi i am ${this.name}`)
+//     },
+//     eat: function(){
+//         console.log(`I'm ${this.name} and im eating ${this.faveFood}`)
+//     }
+// }
+
+// const person2 = {
+//     name: "Patrick",
+//     faveFood:"pizza",
+//     sayHello:function() {
+//         console.log(`Hi i am ${this.name}`)
+//     },
+//     eat: function(){
+//         console.log(`I'm ${this.name} and im eating ${this.faveFood}`)
+//     }
+// }
+
+// person2.sayHello();
+// person2.eat();

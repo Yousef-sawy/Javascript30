@@ -2,38 +2,333 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile-First UI Component</title>
+    <!-- Use Font Awesome via CDN with only the needed icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Mobile-first CSS with performance optimizations */
+        :root {
+            --primary-color: #4c6ef5;
+            --primary-hover: #3b5bdb;
+            --text-color: #333;
+            --text-light: #666;
+            --border-color: #eee;
+            --bg-light: #f9f9f9;
+            --bg-white: #fff;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --radius: 0.375rem;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 0.75rem;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+        
+        .card {
+            background-color: var(--bg-white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            contain: content; /* Improves performance */
+        }
+        
+        .header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+        }
+        
+        .title-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+        }
+        
+        .title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-color);
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+        
+        .edit-btn {
+            background: none;
+            color: var(--text-light);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            padding: 0;
+            font-size: 1rem;
+        }
+        
+        .edit-btn:hover, .edit-btn:focus {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: nowrap;
+        }
+        
+        .create-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            height: 2.5rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            font-size: 0.875rem;
+            min-width: 2.5rem;
+            flex-shrink: 0;
+        }
+        
+        .create-btn:hover, .create-btn:focus {
+            background-color: var(--primary-hover);
+        }
+        
+        .toggle-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 3rem;
+            height: 1.75rem;
+            flex-shrink: 0;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .3s;
+            border-radius: 1.75rem;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 1.25rem;
+            width: 1.25rem;
+            left: 0.25rem;
+            bottom: 0.25rem;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(1.25rem);
+        }
+        
+        .description-btn {
+            background: none;
+            color: var(--text-light);
+            gap: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            height: 2.5rem;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+        
+        .description-btn:hover, .description-btn:focus {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .description-btn i {
+            transition: transform 0.3s;
+            font-size: 0.75rem;
+        }
+        
+        .description-btn.active i {
+            transform: rotate(180deg);
+        }
+        
+        .description-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease, opacity 0.2s ease;
+            opacity: 0;
+            background-color: var(--bg-light);
+            margin-top: 0.75rem;
+            border-radius: var(--radius);
+            width: 100%;
+            visibility: hidden;
+        }
+        
+        .description-panel.open {
+            max-height: 200px;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .description-content {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        /* Larger Mobile Screens */
+        @media (min-width: 480px) {
+            .card {
+                padding: 1.25rem;
+            }
+            
+            .create-btn, .description-btn {
+                min-width: auto;
+            }
+        }
+        
+        /* Tablet and Above */
+        @media (min-width: 768px) {
+            .card {
+                padding: 1.5rem;
+                max-width: 900px;
+            }
+            
+            .header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .title-section {
+                width: auto;
+                flex: 1;
+            }
+            
+            .title {
+                font-size: 1.25rem;
+            }
+            
+            .controls {
+                width: auto;
+                gap: 1rem;
+                justify-content: flex-end;
+            }
+        }
+        
+        /* Touch-specific optimizations */
+        @media (hover: none) {
+            .btn {
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            .toggle-switch {
+                height: 2rem;
+            }
+            
+            .slider:before {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-    <!-- <h1 id="myH1">Welcome</h1>
-    <label for="usernamr">Username</label>
-    <input type="text" id="myText">
-    <button id="submit">submit</button> -->
+    <div class="card">
+        <div class="header">
+            <div class="title-section">
+                <h2 class="title">Server Configuration</h2>
+                <button class="btn edit-btn" aria-label="Edit configuration">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+            <div class="controls">
+                <button class="btn create-btn">Create Server</button>
+                <div class="control-group">
+                    <span class="toggle-label">Set Default</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked aria-label="Set as default">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <button class="btn description-btn" id="description-btn" aria-expanded="false" aria-controls="description-panel">
+                    <span>Description</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="description-panel" class="description-panel">
+            <div class="description-content">
+                <p>This server configuration allows you to customize performance settings, security options, and networking parameters for your application deployment.</p>
+            </div>
+        </div>
+    </div>
 
-
-
-    <!-- <h1>Enter the radius of a circle</h1>
-    <label for="radius">radius:</label>
-    <input type="text"  id="myRadius">
-    <button id="mySubmit">submit</button>
-    <h2 id="myH3"></h2> -->
-
-
-    <!-- <button id="randomButton" >Roll</button>
-    <label id="label"></label> -->
-
-    <!-- <label>Enter you age:</label>
-    <input type="text" id="myText">
-    <button type="submit" id="mySubmit">Submit</button>
-    <p id="result"></p> -->
-    
-
-
-
-    
-
-    <script src="script.js"></script>
+    <script>
+        // Use passive event listeners for better performance
+        document.getElementById('description-btn').addEventListener('click', function() {
+            const descPanel = document.getElementById('description-panel');
+            
+            this.classList.toggle('active');
+            descPanel.classList.toggle('open');
+            
+            const isExpanded = descPanel.classList.contains('open');
+            this.setAttribute('aria-expanded', isExpanded);
+        }, { passive: true });
+    </script>
 </body>
 </html>

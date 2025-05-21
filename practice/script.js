@@ -4,6 +4,8 @@
 //     username = document.getElementById("myText").value;
 //     console.log(username);
 
+// const { useCallback } = require("react");
+
 //     document.getElementById("myH1").textContent =  `Hello ${username}`
 
 
@@ -171,7 +173,7 @@
 //     const t1 = task("Task 1", 2000);
 //     const t2 = task("Task 2", 1000);
 //     const t3 = task("Task 3", 500);
-    
+
 //     await t1; 
 //     await t2; 
 //     await t3;
@@ -351,7 +353,7 @@
 // while(running){
 //     guess = window.prompt(`guess a number between ${minNum} to ${maxNum}`);
 //     guess = Number(guess)
-    
+
 //     if(isNaN(guess)){
 //         window.alert("Enter a valid number");
 //     }
@@ -474,10 +476,286 @@
 // console.log(`Your test score is $${test} and ${avg}`);
 
 
-function combineStrings(...strings){
+// function combineStrings(...strings){
 
-    return strings.join(" ");
-}
+//     return strings.join(" ");
+// }
 
-const fullName = combineStrings("Mr.","Spongebob","Squarepants","III");
-console.log(fullName)
+// const fullName = combineStrings("Mr.","Spongebob","Squarepants","III");
+// console.log(fullName)
+
+// let user ={
+//     name: "yousef",
+//     age: 25,
+//     isStudent: true,
+// }
+// console.log("name" in user);
+// console.log(Object.keys(user));
+// console.log(Object.values(user));
+// console.log(Object.entries(user));
+
+// let user = {
+//     name: "John",
+//     age: 30,
+//     // Method using function declaration
+//     sayHi: function () {
+//         console.log("Hi! I'm " + this.name);
+//     },
+//     // Shorthand method syntax (ES6+)
+//     greet() {
+//         console.log(`Hello! I'm ${this.name} and I'm ${this.age} years old`);
+//     },
+// };
+
+// user.sayHi(); // Hi! I'm John
+// user.greet(); // Hello! I'm John and I'm 30 years old
+
+// let user = {
+//   name: "John",
+//   age: 30,
+//   city: "New York",
+// };
+
+// for (let key in user) {
+//   console.log(`${key}: ${user[key]}`);
+// }
+
+
+// let product = {
+//     name: "Laptop",
+//     price: 999,
+//     inStock: true,
+// };
+
+// // Using Object.keys()
+// Object.keys(product).forEach((key) => {
+//     console.log(`${key}: ${product[key]}`);
+// });
+
+// // Using Object.values()
+// Object.values(product).forEach((value) => {
+//     console.log(value);
+// });
+
+// // Using Object.entries()
+// Object.entries(product).forEach(([key, value]) => {
+//     console.log(`${key}: ${value}`);
+// });
+
+// function hello(callback){
+//     console.log("hello");
+//     callback();
+// }
+
+// function goodbye(){
+//     console.log("goodbye");
+// }
+// hello(goodbye);
+
+
+
+
+// let numbers = [1,2,3,4,5,6];
+
+// numbers.forEach(display)
+
+// function display(element){
+//     console.log(element)
+// }
+
+
+// let fruits = ["APPLE","BANANA","ORANGE","AY7AGA"]
+
+
+// function UpperCase(element , index , array){
+
+//     array[index] = element.toUpperCase();
+// }
+
+// function lower(element,index,array){
+//     array[index] = element.toLowerCase();
+// }
+// function display(element){
+//     console.log(element)
+// }
+
+// function cap(element,index,array){
+//     array[index] = element.charAt(0).toLowerCase() + element.slice(1);
+// }
+
+// fruits.forEach(cap);
+// fruits.forEach(display);
+
+// numbers.forEach( num =>{
+//     console.log(num * 2);
+// })
+
+
+// const numbers = [1,2,3,4,5]
+
+// const doubled = numbers.map(square)
+// const triple = numbers.map(cube)
+
+
+
+// function square(elemnet){
+//     return Math.pow(elemnet , 2)
+// }
+
+// function cube (element){
+//     return Math.pow(element, 3)
+// }
+
+// console.log(doubled)
+// console.log(triple)
+
+
+// const student = ["user1" ,"user2" , "user3" ]
+
+// const UpperCase = student.map(upper)
+// const LowerCase = student.map(lower)
+
+// console.log(UpperCase)
+// console.log(LowerCase)
+
+
+// function upper(element){
+//     return element.toUpperCase();
+// }
+// function lower(element){
+//     return element.toLowerCase();
+// }
+
+
+// const dates = ["2021-1-10" ,"2022-12-16" ,"2022-4-20" ,"2021-6-15"]
+
+// const formatttedDates = dates.map(formatdates)
+
+// console.log(formatttedDates)
+// function formatdates(element){
+//     const parts = element.split("-");
+//     return `${parts[2]} /${parts[1]} / ${parts[0]}`;
+// }
+
+// let numbers = [1,2,3,4,5,6,7,8];
+
+
+// let evenNums = numbers.filter(isEven);
+// console.log(evenNums)
+
+
+
+// let oddNums = numbers.filter(isOdd);
+// console.log(oddNums)
+
+
+// function isEven (element){
+//     return element % 2 === 0;
+// }
+
+// function isOdd (element){
+//     return element % 2 === 1;
+// }
+
+
+// const ages = [21,19,18,17,16,20];
+
+// const adults = ages.filter(isAdult);
+// console.log(adults)
+
+// const underage = ages.filter(underAge)
+// console.log(underage)
+
+// function isAdult(element){
+//     return element >= 18;
+// }
+
+// function underAge(element){
+//     return element < 18;
+// }
+
+
+// let fruits = ["apple","banana","orange","ay7aga","tes","yousef ashraf","fewfwfwfw","yousefashs"]
+
+// const getShortWords = fruits.filter(shortWords);
+// console.log(getShortWords)
+
+// const getLongWords = fruits.filter(longWords);
+// console.log(getLongWords)
+
+// function shortWords(element){
+//     return element.length <= 6;
+// }
+
+// function longWords(element){
+//     return element.length > 6;
+// }
+
+
+// const prices = [20,5,30,10,25,15];
+
+// const total = prices.reduce(sum)
+
+// console.log(`$${total}`)
+
+// function sum(acc ,element){
+//     return acc + element;
+// }
+
+
+// setTimeout(function(){
+//     console.log("hello");
+// }, 2000);
+
+
+// const cube = numbers.map(function(element){
+//     return Math.pow(element, 3)
+// })
+// console.log(cube)
+
+
+
+// const even = numbers.filter(function(element){
+//     return element % 2 === 0;
+// })
+
+
+// const total = numbers.reduce(function(acc,element){
+//     return acc + element;
+// })
+
+// console.log(even)
+// console.log(total)
+
+
+// const hello = (name , age) => {
+//     console.log(`Hello ${name}`)
+//     console.log(`Your are ${age}`)
+
+// }
+
+// hello("bob" ,25);
+
+
+// const numbers = [1,2,3,4,5,6]
+
+// const squares = numbers.map((element) => Math.pow(element,2));
+// const cube = numbers.map((element) => Math.pow(element,3));
+// const evenNum = numbers.filter((element) =>{ 
+//     return element % 2 === 0;
+// })
+// const oddNum = numbers.filter((element) =>{
+//     return element % 2 !== 0;
+// })
+// const total = numbers.reduce((acc,element) => {
+//     return acc + element
+// })
+// // console.log(squares)
+// // console.log(cube)
+// console.log(evenNum)
+// console.log(oddNum)
+// console.log(total)
+
+
+
+ 
